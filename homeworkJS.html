@@ -3,7 +3,9 @@
 <head>
    <meta charset="utf-8">
   
-<!-- Billing address and shipping address need input boxes. one input box for 
+
+<!-- Instructions:
+ Billing address and shipping address need input boxes. one input box for 
 Billing Address               Shipping Address
 name                           "just do the same on this side."
 //insert input box
@@ -39,19 +41,19 @@ zipcode
        <div>
            <!-- Form code goes here-->
         <p>Name:</p>
-        <input class="" id="name1" type="text" name="" placeholder="Enter Your Name" autofocus="" />
+        <input class="input" id="name1" type="text" name="" placeholder="Enter Your Name" autofocus="" />
         <br>
         <p>Address:</p>
-        <input  id="address1" type="text" name="" placeholder="Enter Your Address" />
+        <input class="input" id="address1" type="text" name="" placeholder="Enter Your Address" />
         <br>
         <p>City: </p>
-        <input  id="city1" type="text" name="" placeholder="Enter Your City" />
+        <input class="input" id="city1" type="text" name="" placeholder="Enter Your City" />
         <br>
         <p>State</p>
-        <input  id="state1" type="text" name="" pattern="[A-Za-z]" placeholder="Enter Your State" />
+        <input class="input" id="state1" type="text" name="" pattern="[A-Za-z]" placeholder="Enter Your State" />
         <br>
         <p>Zipcode:</p>
-        <input  id="zipcode1" type="text" name="" placeholder="Enter Your Zipcode" maxlength="5" onkeypress='validate(event)' />
+        <input class="input" id="zipcode1" type="text" name="" placeholder="Enter Your Zipcode" maxlength="5" onkeypress='validate(event)' />
         <br><br><br><br>
        </div>
    </div>
@@ -61,19 +63,19 @@ zipcode
        <div>
            <!-- Form code goes here-->
             <p>Name:</p>
-        <input class="name2" type="text" name="" placeholder="Enter Your Name" />
+        <input class="input" id="name2" type="text" name="" placeholder="Enter Your Name" />
         <br>
         <p>Address:</p>
-        <input class="address2" type="text" name="" placeholder="Enter Your Address" />
+        <input class="input" id="address2" type="text" name="" placeholder="Enter Your Address" />
         <br>
         <p>City: </p>
-        <input class="city2" type="text" name="" placeholder="Enter Your City" />
+        <input class="input" id="city2" type="text" name="" placeholder="Enter Your City" />
         <br>
         <p>State</p>
-        <input class="state2" type="text" name="" pattern="[A-Za-z]"placeholder="Enter Your State" />
+        <input class="input" id="state2" type="text" name="" pattern="[A-Za-z]"placeholder="Enter Your State" />
         <br>
         <p>Zipcode:</p>
-        <input class="zipcode2" type="text" name="" placeholder="Enter Your Zipcode" maxlength="5" onkeypress='validate(event)' />
+        <input class="input" id="zipcode2" type="text" name="" placeholder="Enter Your Zipcode" maxlength="5" onkeypress='validate(event)' />
         <br>
         <p>
           <input type="button" value="Submit"> 
@@ -87,42 +89,15 @@ zipcode
 
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    console.log("jquery is ready to go!");
-    $("#button").on("click", clearInput);
-  });
+$(document).ready(function() {
+  console.log('Enter data now.'); //console.logs for verification
+    $('#clearButton').on('click', function() {
+    $('.input').val(" ");
+      console.log("Form all clear, Sir!");  
+    });
+});
 
-var readUserInput = function() {
-  var name1 = $(".name1").val();
-  //reads what is in 1st box set to a variable called name
-  var address1 = $(".address1").val();
-   //reads what is in 2nd box set to a variable called address
-  var city1 = $(".city1").val();
-   //reads what is in 3rd box set to a variable called city
-  var state1 = $(".state1").val();
-   //reads what is in 4th box set to a variable called state
-  var zipcode1 = $(".zipcode1").val();
-   //reads what is in 5th box set to a variable called zipcode
-   var name2 = $(".name2").val();
-  //reads what is in 1st box set to a variable called name
-  var address2 = $(".address2").val();
-   //reads what is in 2nd box set to a variable called address
-  var city2 = $(".city2").val();
-   //reads what is in 3rd box set to a variable called city
-  var state2 = $(".state2").val();
-   //reads what is in 4th box set to a variable called state
-  var zipcode2 = $(".zipcode2").val();
-   //reads what is in 5th box set to a variable called zipcode
-  var completeData = name1 + name2;
-  return completeData;
-}
-
-var clearInput =  function() {
-  var completeData = readUserInput();
-  $("#clearButton").val(" ");
-
-}
-
+ 
 //zipcode: 'numerical only' restriction
   function validate(evt) {
   var theEvent = evt || window.event;
